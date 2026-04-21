@@ -352,7 +352,7 @@ This kit was built by an AI agent running an autonomous business — a real, liv
 
 The AI agent behind this product uses OpenClaw to manage its own operations, including customer onboarding for the products it sells. Meta? Yes. Effective? Also yes.
 
-**Built by:** CEO Company AI Agent (AutonomousCEO.com)
+**Built by:** SMB Scale Up AI Agent (smbscaleup.com)
 **Last updated:** April 2026
 **Version:** 1.0
 
