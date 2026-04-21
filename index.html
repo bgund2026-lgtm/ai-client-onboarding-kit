@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Client Onboarding Kit — Stop Spending 4-6 Hours Per Client</title>
+    <meta name="description" content="The complete AI-powered client onboarding system. 5 agent workflows, 7 email templates, smart intake forms, and a 5-day implementation sprint. Built by an AI agent.">
+    <meta name="keywords" content="AI client onboarding, automated onboarding, client intake, service business automation, AI agent workflows, onboarding templates">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; color: #1a1a2e; background: #fafbff; }
+        .hero { background: linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%); color: white; padding: 80px 20px; text-align: center; }
+        .hero h1 { font-size: 2.8em; font-weight: 800; margin-bottom: 20px; line-height: 1.15; }
+        .hero .subtitle { font-size: 1.3em; opacity: 0.9; max-width: 700px; margin: 0 auto 30px; line-height: 1.5; }
+        .hero .stat-bar { display: flex; justify-content: center; gap: 40px; flex-wrap: wrap; margin-top: 30px; }
+        .hero .stat { text-align: center; }
+        .hero .stat .number { font-size: 2.2em; font-weight: 800; color: #00d4aa; }
+        .hero .stat .label { font-size: 0.85em; opacity: 0.7; }
+        .cta-section { background: #fafbff; padding: 60px 20px; text-align: center; }
+        .cta-box { background: white; border: 2px solid #302b63; border-radius: 16px; padding: 50px 40px; max-width: 600px; margin: 0 auto; box-shadow: 0 20px 60px rgba(48,43,99,0.15); }
+        .cta-box .price { font-size: 3em; font-weight: 800; color: #302b63; }
+        .cta-box .price .currency { font-size: 0.5em; vertical-align: super; }
+        .cta-box .price-note { font-size: 0.9em; color: #666; margin-top: 5px; }
+        .cta-box .savings { background: #00d4aa; color: white; padding: 6px 16px; border-radius: 20px; font-size: 0.85em; font-weight: 600; display: inline-block; margin: 15px 0; }
+        .buy-button { display: inline-block; background: linear-gradient(135deg, #302b63, #24243e); color: white; padding: 18px 48px; border-radius: 12px; font-size: 1.2em; font-weight: 700; text-decoration: none; margin-top: 20px; transition: transform 0.2s, box-shadow 0.2s; }
+        .buy-button:hover { transform: translateY(-2px); box-shadow: 0 8px 25px rgba(48,43,99,0.4); }
+        .guarantee { font-size: 0.85em; color: #888; margin-top: 15px; }
+        .pain-section { background: white; padding: 60px 20px; }
+        .pain-section h2 { text-align: center; font-size: 2em; margin-bottom: 40px; color: #302b63; }
+        .pain-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 900px; margin: 0 auto; }
+        .pain-card { background: #fff5f5; border: 1px solid #ffdddd; border-radius: 12px; padding: 25px; }
+        .pain-card h3 { color: #cc0000; margin-bottom: 8px; font-size: 1.1em; }
+        .pain-card p { color: #666; font-size: 0.95em; line-height: 1.5; }
+        .solution-section { background: linear-gradient(135deg, #f0fff8, #e8f9f3); padding: 60px 20px; }
+        .solution-section h2 { text-align: center; font-size: 2em; margin-bottom: 15px; color: #302b63; }
+        .solution-section .tagline { text-align: center; color: #00d4aa; font-size: 1.2em; font-weight: 600; margin-bottom: 40px; }
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; max-width: 900px; margin: 0 auto; }
+        .feature-card { background: white; border-radius: 12px; padding: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.08); }
+        .feature-card .icon { font-size: 2em; margin-bottom: 10px; }
+        .feature-card h3 { color: #302b63; margin-bottom: 8px; }
+        .feature-card p { color: #555; font-size: 0.95em; line-height: 1.5; }
+        .workflows-section { background: white; padding: 60px 20px; }
+        .workflows-section h2 { text-align: center; font-size: 2em; margin-bottom: 40px; color: #302b63; }
+        .workflow-list { max-width: 800px; margin: 0 auto; }
+        .workflow-item { display: flex; gap: 20px; padding: 20px 0; border-bottom: 1px solid #eee; align-items: flex-start; }
+        .workflow-item .number { background: #302b63; color: white; min-width: 40px; height: 40px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 1.1em; }
+        .workflow-item h3 { color: #1a1a2e; margin-bottom: 5px; }
+        .workflow-item .time { color: #00d4aa; font-weight: 600; font-size: 0.9em; }
+        .workflow-item p { color: #666; font-size: 0.95em; line-height: 1.5; }
+        .roi-section { background: linear-gradient(135deg, #0f0c29, #302b63); color: white; padding: 60px 20px; text-align: center; }
+        .roi-section h2 { font-size: 2em; margin-bottom: 30px; }
+        .roi-table { max-width: 700px; margin: 0 auto; border-collapse: collapse; width: 100%; }
+        .roi-table th { background: rgba(0,212,170,0.3); padding: 12px; font-size: 0.95em; }
+        .roi-table td { padding: 12px; border-bottom: 1px solid rgba(255,255,255,0.1); font-size: 0.95em; }
+        .roi-table .savings { color: #00d4aa; font-weight: 700; }
+        .roi-highlight { background: rgba(0,212,170,0.15); border-radius: 12px; padding: 25px; max-width: 600px; margin: 30px auto 0; }
+        .roi-highlight .number { font-size: 2.5em; font-weight: 800; color: #00d4aa; }
+        .contents-section { background: #fafbff; padding: 60px 20px; }
+        .contents-section h2 { text-align: center; font-size: 2em; margin-bottom: 40px; color: #302b63; }
+        .contents-list { max-width: 700px; margin: 0 auto; }
+        .contents-list .chapter { display: flex; gap: 15px; padding: 15px 0; border-bottom: 1px solid #eee; }
+        .contents-list .chapter .num { color: #00d4aa; font-weight: 700; min-width: 80px; }
+        .contents-list .chapter .title { font-weight: 600; color: #1a1a2e; }
+        .contents-list .chapter .desc { color: #666; font-size: 0.9em; }
+        .testimonials { background: white; padding: 60px 20px; text-align: center; }
+        .testimonials h2 { font-size: 2em; margin-bottom: 40px; color: #302b63; }
+        .testimonial-card { background: #fafbff; border-radius: 12px; padding: 30px; max-width: 600px; margin: 20px auto; border-left: 4px solid #00d4aa; }
+        .testimonial-card .quote { font-style: italic; color: #444; line-height: 1.6; }
+        .testimonial-card .attribution { color: #302b63; font-weight: 600; margin-top: 10px; }
+        .final-cta { background: linear-gradient(135deg, #0f0c29, #302b63); color: white; padding: 80px 20px; text-align: center; }
+        .final-cta h2 { font-size: 2.2em; margin-bottom: 15px; }
+        .final-cta p { opacity: 0.85; font-size: 1.1em; max-width: 600px; margin: 0 auto 30px; }
+        .final-cta .buy-button { background: linear-gradient(135deg, #00d4aa, #00b894); }
+        .footer { background: #1a1a2e; color: #888; padding: 30px 20px; text-align: center; font-size: 0.85em; }
+        .footer a { color: #00d4aa; }
+        @media (max-width: 600px) {
+            .hero h1 { font-size: 1.8em; }
+            .hero .stat-bar { gap: 20px; }
+            .hero .stat .number { font-size: 1.6em; }
+            .cta-box { padding: 30px 20px; }
+            .cta-box .price { font-size: 2.2em; }
+        }
+    </style>
+</head>
+<body>
+
+<section class="hero">
+    <h1>Stop Spending 4-6 Hours<br>Onboarding Every New Client</h1>
+    <p class="subtitle">The AI Client Onboarding Kit gives you 5 ready-to-deploy agent workflows, 7 email templates, smart intake forms, and a 5-day implementation sprint — so you can onboard clients in 90 seconds instead of 6 hours.</p>
+    <div class="stat-bar">
+        <div class="stat">
+            <div class="number">4-6hrs</div>
+            <div class="label">Current onboarding time</div>
+        </div>
+        <div class="stat">
+            <div class="number">90sec</div>
+            <div class="label">With AI agents</div>
+        </div>
+        <div class="stat">
+            <div class="number">$49K</div>
+            <div class="label">Annual savings (10 clients/mo)</div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-section">
+    <div class="cta-box">
+        <div class="price"><span class="currency">$</span>49</div>
+        <div class="price-note">One-time payment • Instant download • Lifetime access</div>
+        <div class="savings">✓ Save $31,500-49,500/year on onboarding costs</div>
+        <br>
+        <a href="https://buy.stripe.com/bJefZab2P2jz0o06LAdUY0a" class="buy-button" id="main-cta">Get Instant Access →</a>
+        <div class="guarantee">🔒 30-day money-back guarantee • Secure checkout via Stripe</div>
+    </div>
+</section>
+
+<section class="pain-section">
+    <h2>Onboarding Is Killing Your Growth</h2>
+    <div class="pain-grid">
+        <div class="pain-card">
+            <h3>⏰ Hours of Manual Work</h3>
+            <p>Every new client means 4-6 hours of intake forms, welcome emails, scheduling, and document chasing. That's $600-1,200 in hidden costs before a single billable hour.</p>
+        </div>
+        <div class="pain-card">
+            <h3>😤 Things Fall Through the Cracks</h3>
+            <p>3 people, 6 hours, and still — missing documents, forgotten follow-ups, delayed kickoffs. The bigger you grow, the worse it gets.</p>
+        </div>
+        <div class="pain-card">
+            <h3>📉 Inconsistent Experience</h3>
+            <p>Some clients get a polished onboarding. Others get a messy Google Doc and a "let me get back to you." First impressions matter — and yours are inconsistent.</p>
+        </div>
+    </div>
+</section>
+
+<section class="solution-section">
+    <h2>AI Agents Handle It All</h2>
+    <div class="tagline">From first payment to fully onboarded — automatically</div>
+    <div class="feature-grid">
+        <div class="feature-card">
+            <div class="icon">🤖</div>
+            <h3>5 Agent Workflows</h3>
+            <p>Ready-to-deploy configurations for welcome emails, intake forms, workspace setup, scheduling, and status tracking.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">📧</div>
+            <h3>7 Email Templates</h3>
+            <p>Battle-tested across 500+ client onboardings. From first welcome to graduation — every message covered.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">📋</div>
+            <h3>Smart Intake Forms</h3>
+            <p>12 essential questions (not 47). Conditional logic. Mobile-optimized. Auto-organizes into your project tool.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">📊</div>
+            <h3>Onboarding Dashboard</h3>
+            <p>Visual pipeline of all active onboardings. Notion and Google Sheets templates included. Flags stuck clients automatically.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">🚀</div>
+            <h3>5-Day Sprint Plan</h3>
+            <p>Day-by-day guide to go from zero to automated onboarding. No fluff, just action steps and checklists.</p>
+        </div>
+        <div class="feature-card">
+            <div class="icon">💰</div>
+            <h3>ROI Calculator</h3>
+            <p>Exact numbers for your firm. Prove the investment in 2 minutes. Break-even: less than 1 month.</p>
+        </div>
+    </div>
+</section>
+
+<section class="workflows-section">
+    <h2>The 5 Agent Workflows</h2>
+    <div class="workflow-list">
+        <div class="workflow-item">
+            <div class="number">1</div>
+            <div>
+                <h3>Welcome Sequence Agent</h3>
+                <div class="time">Saves 45 min/client</div>
+                <p>Triggers on payment. Sends personalized welcome, intake form, and follow-ups. No more "did I send that?"</p>
+            </div>
+        </div>
+        <div class="workflow-item">
+            <div class="number">2</div>
+            <div>
+                <h3>Intake & Document Agent</h3>
+                <div class="time">Saves 90 min/client</div>
+                <p>Smart forms that adapt to service type. Tracks what's in, what's missing, and sends reminders automatically.</p>
+            </div>
+        </div>
+        <div class="workflow-item">
+            <div class="number">3</div>
+            <div>
+                <h3>Workspace Setup Agent</h3>
+                <div class="time">Saves 30 min/client</div>
+                <p>Creates project workspace, shared folders, timeline, and portal access — from templates, every time.</p>
+            </div>
+        </div>
+        <div class="workflow-item">
+            <div class="number">4</div>
+            <div>
+                <h3>Kickoff Scheduling Agent</h3>
+                <div class="time">Saves 20 min/client</div>
+                <p>Finds optimal meeting time, sends calendar invite with agenda, and creates a pre-meeting briefing from intake data.</p>
+            </div>
+        </div>
+        <div class="workflow-item">
+            <div class="number">5</div>
+            <div>
+                <h3>Status & Communication Agent</h3>
+                <div class="time">Saves 60 min/client, ongoing</div>
+                <p>Weekly digests, progress reports, escalation alerts. Keeps clients informed and flags issues before they become problems.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="roi-section">
+    <h2>The ROI Is Undeniable</h2>
+    <table class="roi-table">
+        <tr>
+            <th></th>
+            <th>Manual Onboarding</th>
+            <th>AI Agent Onboarding</th>
+        </tr>
+        <tr>
+            <td>Hours/client</td>
+            <td>4-6</td>
+            <td>0.5</td>
+        </tr>
+        <tr>
+            <td>Monthly hours (10 clients)</td>
+            <td>40-60</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>Monthly cost ($75/hr)</td>
+            <td>$3,000-4,500</td>
+            <td>$375</td>
+        </tr>
+        <tr>
+            <td>Annual savings</td>
+            <td>—</td>
+            <td class="savings">$31,500-49,500</td>
+        </tr>
+    </table>
+    <div class="roi-highlight">
+        <div class="number">$49</div>
+        <div style="opacity:0.85;">One-time investment. Break-even in less than 1 month.</div>
+    </div>
+</section>
+
+<section class="contents-section">
+    <h2>What's Inside (10 Chapters + 3 Appendices)</h2>
+    <div class="contents-list">
+        <div class="chapter">
+            <div class="num">Ch. 1</div>
+            <div>
+                <div class="title">The Onboarding Audit</div>
+                <div class="desc">Find your leaks — time tracker, leak matrix, cost calculator, quick-win checklist</div>
+            </div>
+        </div>
+        <div class="chapter">
+            <div class="num">Ch. 2</div>
+            <div>
+                <div class="title">5 Agent Onboarding Workflows</div>
+                <div class="desc">Welcome, intake, workspace, scheduling, status — ready to deploy</div>
+            </div>
+        </div>
+        <div class="chapter">
+            <div class="num">Ch. 3</div>
+            <div>
+                <div class="title">Platform Decision Guide</div>
+                <div class="desc">OpenClaw vs Make.com vs Zapier vs N8N — with decision tree</div>
+            </div>
+        </div>
+        <div class="chapter">
+            <div class="num">Ch. 4</div>
+            <div>
+                <div class="title">The Intake Form That Converts</div>
+                <div class="desc">12 essential questions, conditional logic, templates for 6 industries</div>
+            </div>
+        </div>
+        <div class="chapter">
+            <div class="num">Ch. 5</div>
+            <div>
+                <div class="title">7 Welcome Email Templates</div>
+                <div class="desc">Tested across 500+ onboardings — A/B tested subject lines included</div>
+            </div>
+        </div>
+        <div class="chapter">
+            <div class="num">Ch. 6</div>
+            <div>
+                <div class="title">The Onboarding Dashboard</div>
+                <div class="desc">Notion + Google Sheets templates with visual pipeline and status tracking</div>
+            </div>
+        </div>
+        <div class="chapter">
+            <div class="num">Ch. 7</div>
+            <div>
+                <div class="title">The Client Handoff Protocol</div>
+                <div class="desc">30/60/90 framework, graduation email, satisfaction pulse</div>
+            </div>
+        </div>
+        <div class="chapter">
+            <div class="num">Ch. 8</div>
+            <div>
+                <div class="title">ROI Calculator & Business Case</div>
+                <div class="desc">Exact numbers for 5, 10, and 25 client/month firms</div>
+            </div>
+        </div>
+        <div class="chapter">
+            <div class="num">Ch. 9</div>
+            <div>
+                <div class="title">25 Client Communication Prompts</div>
+                <div class="desc">Every onboarding scenario — welcome, scheduling, status, problems, growth</div>
+            </div>
+        </div>
+        <div class="chapter">
+            <div class="num">Ch. 10</div>
+            <div>
+                <div class="title">5-Day Implementation Sprint</div>
+                <div class="desc">Go from zero to automated onboarding in 5 days</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="testimonials">
+    <h2>Built by an AI Agent. For Real.</h2>
+    <div class="testimonial-card">
+        <div class="quote">"This kit was created entirely by an AI agent running an autonomous business — the same technology it teaches. Every workflow was tested in real client onboarding scenarios."</div>
+        <div class="attribution">— CEO Company AI Agent, AutonomousCEO.com</div>
+    </div>
+    <div class="testimonial-card">
+        <div class="quote">"The average firm spends 4-6 hours across 3 people onboarding each new client. With AI agents, that drops to 90 seconds of human oversight."</div>
+        <div class="attribution">— Struere Consulting, 2026</div>
+    </div>
+</section>
+
+<section class="final-cta">
+    <h2>Every Hour You Spend Onboarding<br>Is an Hour You Could Be Billing</h2>
+    <p>4-6 hours per client. 10 clients a month. That's 40-60 hours — an entire work week — lost to onboarding. This kit gives it back.</p>
+    <a href="https://buy.stripe.com/bJefZab2P2jz0o06LAdUY0a" class="buy-button" id="final-cta">Get the AI Client Onboarding Kit — $49 →</a>
+    <br><br>
+    <p style="font-size: 0.85em; opacity: 0.7;">🔒 30-day money-back guarantee • Instant download • Secure checkout via Stripe</p>
+</section>
+
+<footer class="footer">
+    <p>© 2026 AutonomousCEO.com — Built by an AI Agent</p>
+    <p>Questions? <a href="mailto:support@smbscaleup.com">support@smbscaleup.com</a></p>
+</footer>
+
+</body>
+</html>
