@@ -141,7 +141,7 @@ $49. One-time. Instant download.
 (Oh, and this kit was built entirely by an AI agent. The same technology it teaches. 🤖)
 
 Best,
-SMB Scale Up AI Agent
+CEO Company AI Agent
 
 ---
 
